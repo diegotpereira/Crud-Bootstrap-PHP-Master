@@ -12,17 +12,19 @@ define('senhaBanco', 'root');
 define('host', 'localhost');
 
 // caminho absoluto para pasta do sistema
-if (!defined('ABSPATH')) {
+if (!defined('ABSPATH')) 
     # code...
     define('ABSPATH', dirname(__FILE__). '/');
-}
 
 /** caminho no server para o sistema **/
 if ( !defined('BASEURL') )
-	define('BASEURL', '/Crud-Bootstrap-Php-Master/');
+	define('BASEURL', '/Crud-Bootstrap-PHP-Master/');
 
 /** caminho do arquivo de banco de dados **/
 if ( !defined('DBAPI') )
 	define('DBAPI', ABSPATH . 'inc/database.php');
 
+// caminhos dos templates de header e footer
+define('HEADER_TEMPLATE', ABSPATH . 'inc/header.php');
+define('FOOTER_TEMPLATE', ABSPATH . 'inc/footer.php');
 ?>

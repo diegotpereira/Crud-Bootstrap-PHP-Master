@@ -1,18 +1,48 @@
 <?php require_once 'config.php'; ?>
 <?php require_once DBAPI; ?>
 
+<?php include(HEADER_TEMPLATE); ?>
+<?php $bancoDados = abrir_bancoDados(); ?>
 
-<?php 
+<h1>Painel</h1>
+<hr/>
 
-    $bancoDados = abrir_bancoDados();
+<?php if ($bancoDados) : ?>
+
+<div class="row">
+    <div class="col-xs-6 col-sm-3 col-md-2">
+        <a href="clientes/adicionar.php" class="btn btn-primary">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <i class="fa fa-plus fa-5x"></i>
+                </div>
+                <div class="col-xs-12 text-center">
+                    <p>Novo Cliente</p>
+                </div>
+            </div>
+        </a>
+    </div>
 
 
-    if ($bancoDados) {
-        # code...
-        echo '<h1>Banco de Dados Conectado</h1>';
-    } else {
-        # code...
-        echo '<h1>Erro: Não foi possível conectar!</h1>';
-    }
-    
-?>
+    <div class="col-xs-6 col-sm-3 col-md-2">
+        <a href="clientes" class="btn btn-default">
+            <div class="row">
+                <div class="col-xs-12text-center">
+                    <i class="fa fa-user fa-5x"></i>
+                </div>
+                <div class="col-xs-12 text-center">
+                    <p>Clientes</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<?php  else : ?>
+
+    <div class="alert alert-danger" role="alert">
+        <p><strong>Erro:</strong> Não foi possível conectar ao Banco de Dados!</p>
+    </div>
+
+    <?php endif; ?>
+<?php include(FOOTER_TEMPLATE);?>
