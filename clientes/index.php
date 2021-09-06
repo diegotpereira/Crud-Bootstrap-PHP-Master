@@ -51,10 +51,9 @@ index();
                 <td><?php  echo $cliente['telefone']; ?></td>
                 <td><?php  echo $cliente['modified']; ?></td>
                 <td class="actions text-right">
-                    <a href="view.php?id=<?php echo $cliente['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i>Visualizar</a>
+                    <a href="mostrar.php?id=<?php echo $cliente['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i>Visualizar</a>
                     <a href="atualizar.php?id=<?php echo $cliente['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i>Editar</a>
-                    <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-cliente="?php echo $cliente['id']; ?>">
-                        <i class="fa fa-trash"></i>Excluir
+                    <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-cliente="<?php echo $cliente['id']; ?>"><i class="fa fa-trash"></i>Excluir
                     </a>
                 </td>
             </tr>
@@ -68,4 +67,5 @@ index();
     </tbody>
 </table>
 
+<?php include('modal.php'); ?>
 <?php include(FOOTER_TEMPLATE); ?>

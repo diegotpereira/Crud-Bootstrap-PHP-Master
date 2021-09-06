@@ -113,7 +113,7 @@
 
         // remove a ultima virgula
         $items = rtrim($items, ',');
-        
+
         $sql  = "UPDATE " . $table;
         $sql .= " SET $items";
         $sql .= " WHERE id=" . $id . ";";
@@ -129,6 +129,31 @@
 
         } catch (Exception $e) {
             $_SESSION['message'] = 'Não foi possível realizar a operação.';
+            $_SESSION['type'] = 'danger';
+        }
+
+        fechar_bancoDados($bancoDados);
+    }
+
+    // Remove uma linha de uma tabel pelo ID do registro
+    function remover($table = null, $id = null) {
+
+        $bancoDados = abrir_bancoDados();
+
+        try {
+            
+            if ($id) {
+                # code...
+                $sql = "DELETE FROM " . $table . " WHERE id = " . $id;
+                $result = $bancoDados->query($sql);
+
+                if ($result = $bancoDados->query($sql)) {
+                    $_SESSION['message'] = "Registro removido com sucesso.";
+                    $_SESSION['type'] = 'success';
+                }
+            }
+        } catch (Exception $e) {
+            $_SESSION['message'] =  $e->getMessage();
             $_SESSION['type'] = 'danger';
         }
 

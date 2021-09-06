@@ -12,6 +12,13 @@
         $clientes = find_all('clientes');
     }
 
+    // Função visualização de um cliente
+    function mostrar($id = null) {
+
+        global $cliente;
+        $cliente = find('clientes', $id);
+    }
+
     // Função cadastrar  pessoas
     function adicionar() {
         echo ("chegou aqui no adicionar");
@@ -57,6 +64,14 @@
             header('location : index.php');
             
         }
+    }
+
+    // Função de exclusão de um cliente
+    function deletar($id = null) {
+        global $cliente;
+        $cliente = remover('clientes', $id);
+
+        header('location: index.php');
     }
 
 ?>
