@@ -19,11 +19,11 @@ adicionar();
         </div>
         <div class="form-group col-md-3">
             <label for="cpf_cnpj">CNPJ / CPF</label>
-            <input type="text" name="cliente['cpf_cnpj']" class="form-control">
+            <input type="text" name="cliente['cpf_cnpj']" class="form-control" id="cpf">
         </div>
         <div class="form-group col-md-2">
             <label for="dataNascimento">Data de Nascimento</label>
-            <input type="text" name="cliente['dataNascimento']" class="form-control" id="">
+            <input type="text" name="cliente['dataNascimento']" class="form-control" id="dataNascimento" placeholder="__/__/____">
         </div>
     </div>
     <div class="row">
@@ -56,11 +56,11 @@ adicionar();
         </div>
         <div class="form-group col-md-2">
             <label for="telefone">Telefone</label>
-            <input type="text" name="cliente['telefone']" class="form-control" id="">
+            <input type="text" name="cliente['telefone']" class="form-control" id="telefone">
         </div>
         <div class="form-group col-md-2">
             <label for="celular">Celular</label>
-            <input type="text" name="cliente['celular']" class="form-control" id="">
+            <input type="text" name="cliente['celular']" class="form-control" id="celular">
         </div>
         <div class="form-group col-md-2">
             <label for="inscricaoEstadual">Inscrição Estadual</label>
@@ -78,7 +78,9 @@ adicionar();
         </div>
     </div>
 </form>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="/js/cep.js"></script>
+<script type="text/javascript" src="/js/mask.js"></script>
+
+
 
 <?php include(FOOTER_TEMPLATE); ?>
