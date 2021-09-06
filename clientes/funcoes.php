@@ -41,7 +41,7 @@
             if (isset($_POST['cliente'])) {
                 # code...
                 $cliente = $_POST['cliente'];
-                $cliente['modified'] = $now->format("Y¨-m-d H:i:s");
+                $cliente['modified'] = $now->format("Y-m-d H:i:s");
 
                 atualizar('clientes', $id, $cliente);
                 echo ("chegou aqui no chamar função atualizar");

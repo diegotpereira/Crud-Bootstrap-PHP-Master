@@ -112,6 +112,8 @@
         }
 
         // remove a ultima virgula
+        $items = rtrim($items, ',');
+        
         $sql  = "UPDATE " . $table;
         $sql .= " SET $items";
         $sql .= " WHERE id=" . $id . ";";

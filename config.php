@@ -18,7 +18,7 @@ if (!defined('ABSPATH'))
 
 /** caminho no server para o sistema **/
 if ( !defined('BASEURL') )
-	define('BASEURL', '/Crud-Bootstrap-PHP-Master/');
+	define('BASEURL', 'http://localhost:8000/');
 
 /** caminho do arquivo de banco de dados **/
 if ( !defined('DBAPI') )

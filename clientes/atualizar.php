@@ -22,7 +22,7 @@
         </div>
         <div class="form-group col-md-2">
             <label for="dataNascimento">Data de Nascimento</label> 
-            <input type="text" name="cliente['dataNascimento']" class="form-control" id="" value="<?php echo $cliente['dataNascimento']; ?>" >
+            <input type="text" name="cliente['dataNascimento']" class="form-control" id="" value="<?php echo $cliente['dataNascimento']; ?>">
         </div>
     </div>    
     <div class="row">
