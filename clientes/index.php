@@ -38,7 +38,7 @@ index();
             <th>CPF/CNPJ</th>
             <th>Telefone</th>
             <th>Atualizado em</th>
-            <th>Opções</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
