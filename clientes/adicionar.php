@@ -9,7 +9,6 @@ adicionar();
 <h2>Novo Cliente</h2>
 
 <form action="adicionar.php" method="post">
-    <?php echo ("chegou aqui no formulario"); ?>
     <!-- campor do from --->
     <hr />
     <div class="row">
@@ -23,7 +22,7 @@ adicionar();
         </div>
         <div class="form-group col-md-2">
             <label for="dataNascimento">Data de Nascimento</label>
-            <input type="text" name="cliente['dataNascimento']" class="form-control" id="dataNascimento" placeholder="__/__/____">
+            <input type="text" name="cliente['dataNascimento']" class="form-control" id="dataNascimento" maxlength="10" placeholder="__/__/____">
         </div>
     </div>
     <div class="row">

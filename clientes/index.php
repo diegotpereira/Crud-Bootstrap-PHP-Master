@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once('funcoes.php');
 
@@ -19,13 +19,13 @@ index();
         </div>
     </div>
 </header>
-<?php if(!empty($_SESSION['message'])) : ?>
+<?php if (!empty($_SESSION['message'])) : ?>
 
     <div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <?php echo $_SESSION['message']; ?>
     </div>
-     
+
 <?php endif; ?>
 
 <hr>
@@ -43,27 +43,27 @@ index();
     </thead>
     <tbody>
         <?php if ($clientes) : ?>
-        <?php foreach ($clientes as $cliente) : ?>
+            <?php foreach ($clientes as $cliente) : ?>
+                <tr>
+                    <td><?php echo $cliente['id']; ?></td>
+                    <td><?php echo $cliente['nome']; ?></td>
+                    <td><?php echo $cliente['cpf_cnpj']; ?></td>
+                    <td><?php echo $cliente['telefone']; ?></td>
+                    <td><?php echo $cliente['modified']; ?></td>
+                    <td class="actions text-right">
+                        <a href="mostrar.php?id=<?php echo $cliente['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i>Visualizar</a>
+                        <a href="atualizar.php?id=<?php echo $cliente['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i>Editar</a>
+                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-cliente="<?php echo $cliente['id']; ?>"><i class="fa fa-trash"></i>Excluir
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else : ?>
             <tr>
-                <td><?php  echo $cliente['id']; ?></td>
-                <td><?php  echo $cliente['nome']; ?></td>
-                <td><?php  echo $cliente['cpf_cnpj']; ?></td>
-                <td><?php  echo $cliente['telefone']; ?></td>
-                <td><?php  echo $cliente['modified']; ?></td>
-                <td class="actions text-right">
-                    <a href="mostrar.php?id=<?php echo $cliente['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i>Visualizar</a>
-                    <a href="atualizar.php?id=<?php echo $cliente['id']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i>Editar</a>
-                    <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-cliente="<?php echo $cliente['id']; ?>"><i class="fa fa-trash"></i>Excluir
-                    </a>
-                </td>
-            </tr>
-<?php endforeach; ?>
-<?php else : ?>
-    <tr>
-        <td colspan="6">Nenhum redistro encontrado.</td>
+                <td colspan="6">Nenhum redistro encontrado.</td>
 
-    </tr>
-<?php endif; ?>    
+            </tr>
+        <?php endif; ?>
     </tbody>
 </table>
 

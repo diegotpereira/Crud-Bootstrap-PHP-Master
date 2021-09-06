@@ -21,7 +21,6 @@
 
     // Função cadastrar  pessoas
     function adicionar() {
-        echo ("chegou aqui no adicionar");
         if (!empty($_POST['cliente'])) {
             # code...
             $today =  date_create('now', new DateTimeZone('America/Sao_Paulo'));
@@ -30,14 +29,11 @@
             $cliente['modified'] = $cliente['created'] = $today->format("Y-m-d H:i:s");
 
             salvar('clientes', $cliente);
-            echo ("chegou aqui no metodo salvar");
-            // header('location: index.php');
+            header('location: index.php');
         }
     }
     // Atualização e edição de cliente
     function editar() {
-
-        echo ("chegou aqui no função editar");
 
         $now = date_create('now', new DateTimeZone('America/Sao_Paulo'));
 
@@ -51,7 +47,6 @@
                 $cliente['modified'] = $now->format("Y-m-d H:i:s");
 
                 atualizar('clientes', $id, $cliente);
-                echo ("chegou aqui no chamar função atualizar");
                 header('location: index.php');
             } else {
                 # code...
@@ -60,7 +55,7 @@
             }
             
         }else{
-            echo ("chegou aqui no chamar função atualizar else");
+    
             header('location : index.php');
             
         }

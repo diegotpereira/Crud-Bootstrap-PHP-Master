@@ -66,20 +66,27 @@
 
     function salvar($table = null, $data = null) {
 
-        echo ("chegou aqui no salvar");
         $bancoDados =  abrir_bancoDados();
-
         $columns = null;
         $values = null;
 
         foreach($data as $key => $value) {
+
             $columns .= trim($key, "'") . ",";
+
+            if (strpos($value, '/') !== false) {
+                $value = strtr($value, '/', '-');
+                $value = date('Y-m-d', strtotime($value));
+            }
+
+            $value = preg_replace(array("/(á|à|ã|â|ä)/", "/(Á|À|Ã|Â|Ä)/", "/(é|è|ê|ë)/", "/(É|È|Ê|Ë)/", "/(í|ì|î|ï)/", "/(Í|Ì|Î|Ï)/", "/(ó|ò|õ|ô|ö)/", "/(Ó|Ò|Õ|Ô|Ö)/", "/(ú|ù|û|ü)/", "/(Ú|Ù|Û|Ü)/", "/(ñ)/", "/(Ñ)/"), explode(" ", "a A e E i I o O u U n N"), $value);
             $values .= "'$value',";
         }
 
         // remove a ultima virgula
         $columns = rtrim($columns, ',');
         $values = rtrim($values, ',');
+        
 
         $sql = "INSERT INTO " . $table . "($columns)"  . " VALUES " . "($values);";
 
@@ -101,8 +108,6 @@
     // Atualiza um registro em uma tabela, por ID
     function atualizar($table = null, $id = 0, $data = null) {
 
-        echo("Chegou aqui no data base atualizar");
-
         $bancoDados = abrir_bancoDados();
 
         $items = null;
@@ -117,12 +122,11 @@
         $sql  = "UPDATE " . $table;
         $sql .= " SET $items";
         $sql .= " WHERE id=" . $id . ";";
-        echo("Chegou aqui no update atualizar");
 
         try {
             //code...
             $bancoDados->query($sql);
-            echo("Chegou aqui no try/catch atualizar");
+
 
             $_SESSION['message'] = "Registro atualizado com sucesso.";
             $_SESSION['type'] = 'success';
